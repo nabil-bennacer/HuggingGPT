@@ -21,6 +21,7 @@ while True:
 
 
     if prompt in ["bye", "quit"]:
+        print("à plus tard !")
         break  # on quiite le programme
 
     
