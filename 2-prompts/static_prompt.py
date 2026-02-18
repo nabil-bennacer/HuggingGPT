@@ -1,23 +1,20 @@
+
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "1-basics"))
-from gemini import client, MODEL_ID
+sys.path.append(str(Path(__file__).parent.parent / "1-basics"))
 
-while True:
-    prompt = input("\n => Prompt : ").strip().lower()
+from gemini import llm
 
-    if prompt in ["quit", "bye"]:
-        print("Au revoir !")
-        break
+prompt = "Quel est le sens de la vie ?"
 
-    try:
-        response = client.models.generate_content(
-            model=MODEL_ID,
-            contents=prompt
-        )
-        print(f"Réponse : {response.text}")
-        print(f"Tokens totaux utilisés : {response.usage_metadata.total_token_count}")
+try:
+    response = llm.invoke(prompt)
+    
+    print(f"Réponse : {response.content}")
+    
+    tokens = response.response_metadata.get("token_usage", {})
+    print(f"Tokens utilisés : {tokens.get('total_tokens', 'N/A')}")
 
-    except Exception as e:
-        print(f"Erreur : {e}")
+except Exception as e:
+    print(f"Erreur : {e}")
