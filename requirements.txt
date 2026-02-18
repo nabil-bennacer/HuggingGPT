@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 python-dotenv~=1.2.1
 protobuf
+=======
+mistralai
+groq
+python-dotenv
+>>>>>>> Mistral
