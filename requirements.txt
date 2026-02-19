@@ -1,2 +1,5 @@
 python-dotenv~=1.2.1
 protobuf
+langchain
+langchain-google-genai
+google-generativeai
