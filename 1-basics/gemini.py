@@ -10,7 +10,7 @@ def get_gemini_chat_model(model_name: str = "gemini-2.5-flash") -> ChatGoogleGen
     api_key = os.getenv("GEMINI_API_KEY")
     
     return ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash", 
-    google_api_key=api_key,
-    temperature=0.7
-)
+        model="gemini-2.5-flash", 
+        google_api_key=api_key,
+        temperature=0.7
+    )
