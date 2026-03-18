@@ -4,12 +4,14 @@ from pathlib import Path
 
 sys.path.append(str(Path(__file__).parent.parent / "1-basics"))
 
-from gemini import llm
+from gemini import get_gemini_chat_model
+
+llm_gemini = get_gemini_chat_model()
 
 prompt = "Quel est le sens de la vie ?"
 
 try:
-    response = llm.invoke(prompt)
+    response = llm_gemini.invoke(prompt)
     
     print(f"Réponse : {response.content}")
     
