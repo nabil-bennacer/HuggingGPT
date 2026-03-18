@@ -3,7 +3,7 @@ from pathlib import Path
 from langchain_core.prompts import PromptTemplate
 
 sys.path.append(str(Path(__file__).parent.parent / "1-basics"))
-from gemini import llm_gemini
+from gemini import get_gemini_chat_model
 
 
 conversation_history = []
@@ -17,6 +17,8 @@ template_steps = PromptTemplate(
     input_variables = ["topic"],
     template = "Explain in 10 lignes maximum {topic} step by step and make sure I can understand all the concepts"
 )
+
+llm_gemini = get_gemini_chat_model()
 
 prompt1 = template_beginner.format(topic = "airplane takeoff")
 prompt2 = template_steps.format(topic = "airplane takeoff")
